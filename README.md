@@ -8,8 +8,6 @@ retrieve_auth_token
 
 ## Examples
 
-## Invoice Items
-
 ### Holding company summary (grouping by franchise)
 
 ### Revenue by quarters
