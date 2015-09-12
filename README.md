@@ -4,7 +4,7 @@ The Reporting API provides easy and powerful access to a rich dataset on busines
 ## Obtaining an Auth Token without OAuth
 Many application developers will obtain auth tokens by virtue of their users authenticating and authorizing the application via OAuth. If you do not plan on doing this (perhaps you're being contracted by a business to write a custom dashboard and simply want to begin making Reporting API queries) *and* you have a profile with the business with the necessary permission level, you many customize the following script and easily obtain an auth token:
 
-https://github.com/frontdesk/reporting_api_example/blob/master/retrieve_auth_token
+https://github.com/frontdesk/reporting_api_example/blob/master/retrieve_auth_token.sh
 
 ## Examples
 
