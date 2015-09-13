@@ -9,7 +9,7 @@ https://github.com/frontdesk/reporting_api_example/blob/master/retrieve_auth_tok
 ## Examples
 
 ### Holding company summary (grouping by franchise)
-
+#### Request
 ```
 curl -D - -H 'Content-Type:application/vnd.api+json' http://reportingv3.reporting-api.dev/api/v3/invoice_items/queries?access_token=HbedjPspsJeTAlujXX2qI70uzm0BuKSZMMEpqcJU -d @- <<QUERY
   { 
@@ -26,6 +26,55 @@ curl -D - -H 'Content-Type:application/vnd.api+json' http://reportingv3.reportin
     }
   }
 QUERY
+```
+#### Response
+```
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+Date: Sun, 13 Sep 2015 04:49:57 GMT
+Connection: close
+
+{
+   "data":{
+      "type":"queries",
+      "id":"7eeb2a5b-8bf0-4c8c-b1cf-521e298ff5cc",
+      "attributes":{
+         "rows":[
+            [
+               "Reporting V3",
+               545315,
+               547542,
+               -55900,
+               -23000
+            ]
+         ],
+         "duration":3.47818,
+         "has_more":false,
+         "fields":[
+            {
+               "name":"group_label",
+               "type":"string"
+            },
+            {
+               "name":"total_net_paid_revenue_amount",
+               "type":"currency"
+            },
+            {
+               "name":"total_net_paid_amount",
+               "type":"currency"
+            },
+            {
+               "name":"total_refunds_amount",
+               "type":"currency"
+            },
+            {
+               "name":"total_discounts_amount",
+               "type":"currency"
+            }
+         ]
+      }
+   }
+}
 ```
 
 ### Revenue by quarters
