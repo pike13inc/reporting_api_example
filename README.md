@@ -26,7 +26,7 @@ curl -D - -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdes
           "limit" : 10 
         }, 
         "group": "business_name",
-        "fields": ["total_net_paid_revenue_amount", "total_payments_amount", "total_refunds_amount" ], 
+        "fields": ["total_net_paid_revenue_amount", "total_net_paid_amount", "total_net_paid_tax_amount" ],
         "sort": ["total_net_paid_revenue_amount-"] 
       }
     }
