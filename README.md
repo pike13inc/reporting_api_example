@@ -32,7 +32,7 @@ curl -D - -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdes
 QUERY
 ```
 #### Response
-```
+```bash
 HTTP/1.1 200 OK
 Content-Type: application/vnd.api+json
 
@@ -77,7 +77,7 @@ Content-Type: application/vnd.api+json
 ### Sales activity of "Drop-In" by date
 
 #### Request
-```
+```bash
 curl -D - -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.com/desk/api/v3/reports/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
   { 
     "data": { 
@@ -94,7 +94,7 @@ QUERY
 ```
 
 #### Response
-```
+```bash
 HTTP/1.1 200 OK
 Content-Type: application/vnd.api+json
 
@@ -158,7 +158,7 @@ Content-Type: application/vnd.api+json
 ### Top 5 revenue-generating clients for September, excluding retail sales
 
 #### Request
-```
+```bash
 curl -D - -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.com/desk/api/v3/reports/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
   { 
     "data": { 
@@ -184,7 +184,7 @@ QUERY
 ```
 
 #### Response
-```
+```bash
 HTTP/1.1 200 OK
 Content-Type: application/vnd.api+json
 
@@ -232,7 +232,119 @@ Content-Type: application/vnd.api+json
 }
 ```
 
-### Top 5 selling items
+### Last 10 product sold
+
+#### Request
+```bash
+curl -D - -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.com/desk/api/v3/reports/invoice_items/queries?access_token=HbedjPspsJeTAlujXX2qI70uzm0BuKSZMMEpqcJU -d @- <<QUERY
+  { 
+    "data": { 
+      "type": "queries",       
+      "attributes": { 
+        "filter": ["eq", "invoice_state", "closed"],
+        "fields": ["product_name", "product_type", "net_paid_revenue_amount", "invoice_payer_name"],
+        "sort": ["closed_at-"],
+        "page": {
+        	"limit" : 10
+        } 
+      }
+    }
+  }
+QUERY
+```
+#### Response
+```bash
+{
+   "data":{
+      "type":"queries",
+      "attributes":{
+         "rows":[
+            [
+               "Reporting Monthly Plan",
+               "monthly",
+               49505,
+               "Sydnee VonRueden"
+            ],
+            [
+               null,
+               "signup_fee",
+               1000,
+               "Sydnee VonRueden"
+            ],
+            [
+               "Drop-in",
+               "pass",
+               495,
+               "Kaia Collins"
+            ],
+            [
+               "Drop-in",
+               "pass",
+               495,
+               "Kaia Collins"
+            ],
+            [
+               "Drop-in",
+               "pass",
+               495,
+               "Kaia Collins"
+            ],
+            [
+               "Drop-in",
+               "pass",
+               495,
+               "Kaia Collins"
+            ],
+            [
+               "Drop-in",
+               "pass",
+               495,
+               "Kaia Collins"
+            ],
+            [
+               "Drop-in",
+               "pass",
+               495,
+               "Kaia Collins"
+            ],
+            [
+               "Drop-in",
+               "pass",
+               495,
+               "Kaia Collins"
+            ],
+            [
+               "Drop-in",
+               "pass",
+               495,
+               "Kaia Collins"
+            ]
+         ],
+         "uuid":"af12d0b9-d041-4dbd-9c51-51445e535628",
+         "duration":2.562092,
+         "has_more":true,
+         "fields":[
+            {
+               "name":"product_name",
+               "type":"string"
+            },
+            {
+               "name":"product_type",
+               "type":"enum"
+            },
+            {
+               "name":"net_paid_revenue_amount",
+               "type":"currency"
+            },
+            {
+               "name":"invoice_payer_name",
+               "type":"string"
+            }
+         ]
+      }
+   }
+}
+```
 
 ### top 5 revenue generating items
 
