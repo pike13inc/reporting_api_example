@@ -149,7 +149,7 @@ QUERY
 }
 ```
 
-### Top 5 revenue-generating clients for September, excluding retail sales
+### Top five revenue-generating clients for September, excluding retail sales
 
 #### Request
 ```bash
@@ -223,7 +223,7 @@ QUERY
 }
 ```
 
-### Last 10 product sold
+### Last five invoice items sold
 
 #### Request
 ```bash
@@ -236,7 +236,7 @@ curl -D - -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdes
         "fields": ["product_name", "product_type", "net_paid_revenue_amount", "invoice_payer_name"],
         "sort": ["closed_at-"],
         "page": {
-        	"limit" : 10
+        	"limit" : 5
         } 
       }
     }
@@ -279,36 +279,6 @@ QUERY
                "pass",
                9901,
                "Sydnee VonRueden"
-            ],
-            [
-               "SQL 101",
-               "pass",
-               9901,
-               "Sydnee VonRueden"
-            ],
-            [
-               "Advanced Analytics",
-               "pass",
-               29703,
-               "Tom Walker"
-            ],
-            [
-               "Reporting pass",
-               "pass",
-               9901,
-               "Johnny Five"
-            ],
-            [
-               "Reporting pass",
-               "pass",
-               9901,
-               "Johnny Five"
-            ],
-            [
-               "Reporting pass",
-               "pass",
-               9901,
-               "Johnny Five"
             ]
          ],
          "uuid":"469bfad0-fd5e-4f66-a8e9-f65b71c53bd7",
