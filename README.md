@@ -43,7 +43,6 @@ Connection: close
 {
    "data":{
       "type":"queries",
-      "id":"df011dfa-9ab8-4263-b795-20ff812363fe",
       "attributes":{
          "rows":[
             [
@@ -53,6 +52,7 @@ Connection: close
                2227
             ]
          ],
+         "uuid":"df011dfa-9ab8-4263-b795-20ff812363fe",
          "duration":1.384004,
          "has_more":false,
          "fields":[
