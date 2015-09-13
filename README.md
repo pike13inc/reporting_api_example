@@ -13,7 +13,7 @@ Many application developers will obtain auth tokens by virtue of their users aut
 
 ### Revenue by franchise
 
-Order all franchises by their total revenue. Also includes total payments, refunds, and discounts.
+Order all franchises by their total revenue. Also includes total payments and taxes paid.
 
 #### Request
 ```
@@ -37,8 +37,6 @@ QUERY
 ```
 HTTP/1.1 200 OK
 Content-Type: application/vnd.api+json
-Date: Sun, 13 Sep 2015 04:49:57 GMT
-Connection: close
 
 {
    "data":{
@@ -78,7 +76,88 @@ Connection: close
 }
 ```
 
-### Revenue by quarters
+### Sales activity of "Drop-In" by date
+
+Order dates by the number of sold "Drop-In" products. Include the same financial metrics used in the previous example.
+
+#### Request
+```
+curl -D - -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.reporting-api.dev/api/v3/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
+  { 
+    "data": { 
+      "type": "queries",       
+      "attributes": { 
+        "group": "closed_date",
+        "filter": ["contains", "product_name", "Drop-In"],
+        "fields": ["invoice_item_count", "total_net_paid_revenue_amount", "total_net_paid_amount", "total_net_paid_tax_amount" ], 
+        "sort": ["total_net_paid_revenue_amount-"] 
+      }
+    }
+  }
+QUERY
+```
+
+#### Response
+```
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+
+{
+   "data":{
+      "type":"queries",
+      "attributes":{
+         "rows":[
+            [
+               "2015-09-02",
+               23,
+               11385,
+               11500,
+               115
+            ],
+            [
+               "2015-09-03",
+               1,
+               500,
+               500,
+               0
+            ],,
+            [
+               "2015-09-04",
+               0,
+               0,
+               0,
+               0
+            ]            
+         ],
+         "uuid":"74dd4ff6-e9e9-49b3-9833-d8ef48b8394b",
+         "duration":3.47039,
+         "has_more":false,
+         "fields":[
+            {
+               "name":"group_label",
+               "type":"date"
+            },
+            {
+               "name":"invoice_item_count",
+               "type":"integer"
+            },
+            {
+               "name":"total_net_paid_revenue_amount",
+               "type":"currency"
+            },
+            {
+               "name":"total_net_paid_amount",
+               "type":"currency"
+            },
+            {
+               "name":"total_net_paid_tax_amount",
+               "type":"currency"
+            }
+         ]
+      }
+   }
+}
+```
 
 ### Top 5 spenders
 
