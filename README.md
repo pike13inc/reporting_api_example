@@ -14,7 +14,7 @@ Many application developers will obtain auth tokens by virtue of their users aut
 ### Revenue by franchise
 
 #### Request
-```
+```bash
 curl -D - -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.com/desk/api/v3/reports/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
   { 
     "data": { 
