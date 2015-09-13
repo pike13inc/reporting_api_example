@@ -10,6 +10,24 @@ https://github.com/frontdesk/reporting_api_example/blob/master/retrieve_auth_tok
 
 ### Holding company summary (grouping by franchise)
 
+```
+curl -D - -H 'Content-Type:application/vnd.api+json' http://reportingv3.reporting-api.dev/api/v3/invoice_items/queries?access_token=HbedjPspsJeTAlujXX2qI70uzm0BuKSZMMEpqcJU -d @- <<QUERY
+  { 
+    "data": { 
+      "type": "queries", 
+      "attributes": { 
+        "page": { 
+          "limit" : 10 
+        }, 
+        "group": "business_name",
+        "fields": ["total_net_paid_revenue_amount", "total_net_paid_amount", "total_refunds_amount", "total_discounts_amount" ], 
+        "sort": ["total_net_paid_revenue_amount-"] 
+      }
+    }
+  }
+QUERY
+```
+
 ### Revenue by quarters
 
 ### Top 5 spenders
