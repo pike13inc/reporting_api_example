@@ -13,8 +13,6 @@ Many application developers will obtain auth tokens by virtue of their users aut
 
 ### Revenue by franchise
 
-Order all franchises by their total revenue. Also includes total payments and taxes paid.
-
 #### Request
 ```
 curl -D - -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.com/desk/api/v3/reports/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
@@ -78,11 +76,9 @@ Content-Type: application/vnd.api+json
 
 ### Sales activity of "Drop-In" by date
 
-Order dates by the number of sold "Drop-In" products. Include the same financial metrics used in the previous example.
-
 #### Request
 ```
-curl -D - -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.reporting-api.dev/api/v3/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
+curl -D - -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.com/desk/api/v3/reports/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
   { 
     "data": { 
       "type": "queries",       
@@ -159,7 +155,82 @@ Content-Type: application/vnd.api+json
 }
 ```
 
-### Top 5 spenders
+### Top 5 revenue-generating clients for September, excluding retail sales
+
+#### Request
+```
+curl -D - -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.com/desk/api/v3/reports/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
+  { 
+    "data": { 
+      "type": "queries",       
+      "attributes": { 
+        "group": "invoice_payer_name",
+        "filter": [
+        		"and", 
+        		[
+        			["ne", "product_type", "retail"],
+        			["btw", "closed_date", ["2015-09-01", "2015-09-30"]]
+        		]
+        ],
+        "fields": ["total_net_paid_revenue_amount" ], 
+        "sort": ["total_net_paid_revenue_amount-"],
+        "page": {
+        	"limit" : 5
+        } 
+      }
+    }
+  }
+QUERY
+```
+
+#### Response
+```
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+
+{
+   "data":{
+      "type":"queries",
+      "attributes":{
+         "rows":[
+            [
+               "Kaia Collins",
+               147088
+            ],
+            [
+               "Jacquelyn Gleason",
+               130000
+            ],
+            [
+               "Johnny Five",
+               90604
+            ],
+            [
+               "Sydnee VonRueden",
+               83678
+            ],
+            [
+               "Chadd Hane",
+               60000
+            ]
+         ],
+         "uuid":"3fb6009f-18bd-417c-9adc-9395f20ef51a",
+         "duration":0.827071,
+         "has_more":true,
+         "fields":[
+            {
+               "name":"group_label",
+               "type":"string"
+            },
+            {
+               "name":"total_net_paid_revenue_amount",
+               "type":"currency"
+            }
+         ]
+      }
+   }
+}
+```
 
 ### Top 5 selling items
 
