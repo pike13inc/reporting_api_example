@@ -355,22 +355,22 @@ QUERY
                11885
             ],
             [
-               "Reporting pass",
+               "Day Pass",
                9,
                85505
             ],
             [
-               "SQL 101",
+               "Week Pass",
                9,
                69604
             ],
             [
-               "Reporting Monthly Plan",
+               "Monthly Plan",
                4,
                99505
             ],
             [
-               "Data warehouse 101 test change name",
+               "One Year Prepaid",
                3,
                202970
             ]
