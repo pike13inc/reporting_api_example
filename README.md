@@ -11,7 +11,9 @@ Many application developers will obtain auth tokens by virtue of their users aut
 
 ## Examples
 
-### Revenue by franchise
+### Franchise revenue report
+
+We will only report on the top ten revenue-generating franchises. As no timeframe is filtered this includes all sales ever recorded in Front Desk.
 
 #### Request
 ```bash
@@ -20,12 +22,12 @@ curl -D - -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdes
     "data": { 
       "type": "queries", 
       "attributes": { 
-        "page": { 
-          "limit" : 10 
-        }, 
         "group": "business_name",
         "fields": ["total_net_paid_revenue_amount", "total_net_paid_amount", "total_net_paid_tax_amount" ],
-        "sort": ["total_net_paid_revenue_amount-"] 
+        "sort": ["total_net_paid_revenue_amount-"],
+        "page": { 
+          "limit" : 10 
+        }
       }
     }
   }
@@ -71,7 +73,9 @@ QUERY
 }
 ```
 
-### Sales activity of "Drop-In" by date
+### Product sales activity report
+
+We will only consider sales activity for a product named "Drop-In".
 
 #### Request
 ```bash
@@ -110,9 +114,16 @@ QUERY
                500,
                500,
                0
-            ],,
+            ],
             [
-               "2015-09-04",
+               "2015-09-01",
+               0,
+               0,
+               0,
+               0
+            ],
+            [
+               "2015-09-05",
                0,
                0,
                0,
@@ -149,7 +160,9 @@ QUERY
 }
 ```
 
-### Top five revenue-generating clients for September, excluding retail sales
+### Most valuable clients report
+
+We also happen to want to exclude retail and only consider the month of September, 2015.
 
 #### Request
 ```bash
@@ -223,7 +236,7 @@ QUERY
 }
 ```
 
-### Last five invoice items sold
+### Recently sold items report
 
 #### Request
 ```bash
@@ -307,6 +320,79 @@ QUERY
 }
 ```
 
-### top 5 revenue generating items
+### Best selling items report
 
-In the spirit of https://github.com/frontdesk/booking_platform_integration_example
+#### Request
+```bash
+curl -D - -H 'Content-Type:application/vnd.api+json' http://reportingv3.reporting-api.dev/api/v3/invoice_items/queries?access_token=HbedjPspsJeTAlujXX2qI70uzm0BuKSZMMEpqcJU -d @- <<QUERY
+  { 
+    "data": { 
+      "type": "queries",       
+      "attributes": { 
+      	"group": "product_name",
+        "fields": ["invoice_item_count", "total_net_paid_revenue_amount"],
+        "sort": ["invoice_item_count-"],
+        "page": {
+        	"limit" : 5
+        } 
+      }
+    }
+  }
+QUERY
+
+```
+
+#### Response
+```bash
+{
+   "data":{
+      "type":"queries",
+      "attributes":{
+         "rows":[
+            [
+               "Drop-in",
+               24,
+               11885
+            ],
+            [
+               "Reporting pass",
+               9,
+               85505
+            ],
+            [
+               "SQL 101",
+               9,
+               69604
+            ],
+            [
+               "Reporting Monthly Plan",
+               4,
+               99505
+            ],
+            [
+               "Data warehouse 101 test change name",
+               3,
+               202970
+            ]
+         ],
+         "uuid":"9d1c61a7-34ee-46a1-85a1-9223a6d486fb",
+         "duration":3.960124,
+         "has_more":true,
+         "fields":[
+            {
+               "name":"group_label",
+               "type":"string"
+            },
+            {
+               "name":"invoice_item_count",
+               "type":"integer"
+            },
+            {
+               "name":"total_net_paid_revenue_amount",
+               "type":"currency"
+            }
+         ]
+      }
+   }
+}
+```
