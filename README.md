@@ -8,10 +8,13 @@ https://github.com/frontdesk/reporting_api_example/blob/master/retrieve_auth_tok
 
 ## Examples
 
-### Holding company summary (grouping by franchise)
+### Cash flow by franchise
+
+The following 
+
 #### Request
 ```
-curl -D - -H 'Content-Type:application/vnd.api+json' http://reportingv3.reporting-api.dev/api/v3/invoice_items/queries?access_token=HbedjPspsJeTAlujXX2qI70uzm0BuKSZMMEpqcJU -d @- <<QUERY
+curl -D - -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.com/desk/api/v3/reports/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
   { 
     "data": { 
       "type": "queries", 
@@ -41,12 +44,12 @@ Connection: close
       "attributes":{
          "rows":[
             [
-               "Reporting V3",
+               "Albuquerque",
                545315,
                547542,
                -55900,
                -23000
-            ]
+            ]            
          ],
          "duration":3.47818,
          "has_more":false,
