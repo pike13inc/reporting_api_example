@@ -26,7 +26,7 @@ curl -D - -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdes
           "limit" : 10 
         }, 
         "group": "business_name",
-        "fields": ["total_net_paid_revenue_amount", "total_net_paid_amount", "total_refunds_amount", "total_discounts_amount" ], 
+        "fields": ["total_net_paid_revenue_amount", "total_payments_amount", "total_refunds_amount" ], 
         "sort": ["total_net_paid_revenue_amount-"] 
       }
     }
@@ -43,18 +43,17 @@ Connection: close
 {
    "data":{
       "type":"queries",
-      "id":"7eeb2a5b-8bf0-4c8c-b1cf-521e298ff5cc",
+      "id":"df011dfa-9ab8-4263-b795-20ff812363fe",
       "attributes":{
          "rows":[
             [
-               "Albuquerque",
+               "Reporting V3",
                545315,
                547542,
-               -55900,
-               -23000
-            ]            
+               2227
+            ]
          ],
-         "duration":3.47818,
+         "duration":1.384004,
          "has_more":false,
          "fields":[
             {
@@ -70,11 +69,7 @@ Connection: close
                "type":"currency"
             },
             {
-               "name":"total_refunds_amount",
-               "type":"currency"
-            },
-            {
-               "name":"total_discounts_amount",
+               "name":"total_net_paid_tax_amount",
                "type":"currency"
             }
          ]
