@@ -33,9 +33,6 @@ QUERY
 ```
 #### Response
 ```bash
-HTTP/1.1 200 OK
-Content-Type: application/vnd.api+json
-
 {
    "data":{
       "type":"queries",
@@ -95,9 +92,6 @@ QUERY
 
 #### Response
 ```bash
-HTTP/1.1 200 OK
-Content-Type: application/vnd.api+json
-
 {
    "data":{
       "type":"queries",
@@ -185,9 +179,6 @@ QUERY
 
 #### Response
 ```bash
-HTTP/1.1 200 OK
-Content-Type: application/vnd.api+json
-
 {
    "data":{
       "type":"queries",
@@ -272,56 +263,56 @@ QUERY
                "Sydnee VonRueden"
             ],
             [
-               "Drop-in",
+               "Advanced Analytics",
                "pass",
-               495,
-               "Kaia Collins"
+               9901,
+               "Johnny Five"
             ],
             [
-               "Drop-in",
+               "SQL 101",
                "pass",
-               495,
-               "Kaia Collins"
+               9901,
+               "Sydnee VonRueden"
             ],
             [
-               "Drop-in",
+               "SQL 101",
                "pass",
-               495,
-               "Kaia Collins"
+               9901,
+               "Sydnee VonRueden"
             ],
             [
-               "Drop-in",
+               "SQL 101",
                "pass",
-               495,
-               "Kaia Collins"
+               9901,
+               "Sydnee VonRueden"
             ],
             [
-               "Drop-in",
+               "Advanced Analytics",
                "pass",
-               495,
-               "Kaia Collins"
+               29703,
+               "Tom Walker"
             ],
             [
-               "Drop-in",
+               "Reporting pass",
                "pass",
-               495,
-               "Kaia Collins"
+               9901,
+               "Johnny Five"
             ],
             [
-               "Drop-in",
+               "Reporting pass",
                "pass",
-               495,
-               "Kaia Collins"
+               9901,
+               "Johnny Five"
             ],
             [
-               "Drop-in",
+               "Reporting pass",
                "pass",
-               495,
-               "Kaia Collins"
+               9901,
+               "Johnny Five"
             ]
          ],
-         "uuid":"af12d0b9-d041-4dbd-9c51-51445e535628",
-         "duration":2.562092,
+         "uuid":"469bfad0-fd5e-4f66-a8e9-f65b71c53bd7",
+         "duration":1.359252,
          "has_more":true,
          "fields":[
             {
