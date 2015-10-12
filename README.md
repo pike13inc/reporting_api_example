@@ -6,6 +6,10 @@ For more details about request structures, reponse structures, column types, and
 
 ## Examples
 
+### Invoice Items
+
+See the [Invoice Item API documentation](https://developer.frontdeskhq.com/docs/reporting/v3#query-invoice-items) for available columns and groupings.
+
 ### Franchise revenue report
 
 We will only report on the top ten revenue-generating franchises. As no timeframe is filtered this includes all sales ever recorded in Front Desk.
