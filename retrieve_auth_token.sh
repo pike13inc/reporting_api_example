@@ -1,3 +1,6 @@
+# At the moment there isn't a great way to obtain authentication tokens without creating a profile on the business.
+# This makes things a little more bearable for the time being.
+
 # Obtained by registering your application at https://developer.frontdeskhq.com/
 client_id=
 client_secret=
