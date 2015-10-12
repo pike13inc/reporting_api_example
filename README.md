@@ -10,11 +10,11 @@ For more details about request structures, reponse structures, column types, and
 
 See the [Invoice Item API documentation](https://developer.frontdeskhq.com/docs/reporting/v3#query-invoice-items) for available columns and groupings.
 
-### Franchise revenue report
+#### Franchise revenue report
 
 We will only report on the top ten revenue-generating franchises. As no timeframe is filtered this includes all sales ever recorded in Front Desk.
 
-#### Request
+##### Request
 ```bash
 curl -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.com/desk/api/v3/reports/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
   { 
@@ -32,7 +32,7 @@ curl -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.c
   }
 QUERY
 ```
-#### Response
+##### Response
 ```bash
 {
    "data":{
@@ -67,11 +67,11 @@ QUERY
 }
 ```
 
-### Product sales activity report
+#### Product sales activity report
 
 We will only consider sales activity for a product named "Drop-In".
 
-#### Request
+##### Request
 ```bash
 curl -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.com/desk/api/v3/reports/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
   { 
@@ -88,7 +88,7 @@ curl -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.c
 QUERY
 ```
 
-#### Response
+##### Response
 ```bash
 {
    "data":{
@@ -130,11 +130,11 @@ QUERY
 }
 ```
 
-### Most valuable clients report
+#### Most valuable clients report
 
 We also happen to want to exclude retail and only consider the month of September, 2015.
 
-#### Request
+##### Request
 ```bash
 curl -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.com/desk/api/v3/reports/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
   { 
@@ -160,7 +160,7 @@ curl -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.c
 QUERY
 ```
 
-#### Response
+##### Response
 ```bash
 {
    "data":{
@@ -191,9 +191,9 @@ QUERY
 }
 ```
 
-### Recently sold items report
+#### Recently sold items report
 
-#### Request
+##### Request
 ```bash
 curl -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.com/desk/api/v3/reports/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
   { 
@@ -211,7 +211,7 @@ curl -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.c
   }
 QUERY
 ```
-#### Response
+##### Response
 ```bash
 {
    "data":{
@@ -250,9 +250,9 @@ QUERY
 }
 ```
 
-### Best selling items report
+#### Best selling items report
 
-#### Request
+##### Request
 ```bash
 curl -D - -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.com/api/v3/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
   { 
@@ -269,10 +269,9 @@ curl -D - -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdes
     }
   }
 QUERY
-
 ```
 
-#### Response
+##### Response
 ```bash
 {
    "data":{
