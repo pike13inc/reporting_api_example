@@ -2,7 +2,7 @@
 
 The Reporting API provides easy and powerful access to a rich dataset on businesses, franchises, and their clients. Here are a few examples. 
 
-For more details about request structures, reponse structures, column types, and more, see [Reporting API documentation](https://developer.frontdeskhq.com).
+For more details about request structures, reponse structures, column types, and more, see [Reporting API documentation](https://developer.frontdeskhq.com/docs/reporting/v3).
 
 ## Examples
 
