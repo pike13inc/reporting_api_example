@@ -12,7 +12,7 @@ See the [Invoice Item API documentation](https://developer.frontdeskhq.com/docs/
 
 #### Franchise revenue report
 
-We will only report on the top ten revenue-generating franchises. As no timeframe is filtered this includes all sales ever recorded in Front Desk.
+Find the top ten revenue-generating franchises. As no timeframe is filtered this includes all sales ever recorded in Front Desk.
 
 ##### Request
 ```bash
@@ -69,7 +69,7 @@ QUERY
 
 #### Product sales activity report
 
-We will only consider sales activity for a product named "Drop-In".
+Find all sales activity for a product named "Drop-In".
 
 ##### Request
 ```bash
@@ -132,7 +132,7 @@ QUERY
 
 #### Most valuable clients report
 
-We also happen to want to exclude retail and only consider the month of September, 2015.
+Find the five clients who have contributed the most revenue to the business. Also, exclude retail and only consider the month of September, 2015.
 
 ##### Request
 ```bash
@@ -193,6 +193,8 @@ QUERY
 
 #### Recently sold items report
 
+Find the five most recent items sold.
+
 ##### Request
 ```bash
 curl -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.com/desk/api/v3/reports/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
@@ -251,6 +253,8 @@ QUERY
 ```
 
 #### Best selling items report
+
+Find the five items that have been sold the most and the total revenue they have contributed.
 
 ##### Request
 ```bash
