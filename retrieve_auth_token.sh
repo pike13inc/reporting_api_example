@@ -15,29 +15,24 @@ password=
 
 cookie_jar=front_desk_cookies.txt
 
-echo "obtaining sign in authenticity token..."
-
 # GET /accounts/sign_in
+echo "obtaining sign in authenticity token..."
 token=$(curl -b $cookie_jar -c $cookie_jar -s ${host}/accounts/sign_in | perl -n -e '/authenticity_token" type="hidden" value="([^"]+)"/ && print $1')
 
-echo "signing in..."
-
 # POST /accounts/sign_in
+echo "signing in..."
 curl -b $cookie_jar -c $cookie_jar -s -X POST -d "authenticity_token=${token}&account[email]=${user}&account[password]=${password}" ${host}/accounts/sign_in 2>&1 > /dev/null
 
-echo "obtaining authorise authenticity token..."
-
 # GET /oauth/authorize
+echo "obtaining authorise authenticity token..."
 token=$(curl -b $cookie_jar -c $cookie_jar -s -X GET -d "client_id=${client_id}&response_type=code&redirect_uri=http://foo.com" ${host}/oauth/authorize | perl -n -e '/authenticity_token" type="hidden" value="([^"]+)"/ && print $1')
 
-echo "authorising..."
-
 # POST /oauth/authorize
+echo "authorising..."
 code=$(curl -b $cookie_jar -c $cookie_jar -s -D - -X POST -d "authenticity_token=${token}&authorize=1&client_id=${client_id}&response_type=code&redirect_uri=http://foo.com" ${host}/oauth/authorize | perl -n -e '/Location: .+?code=(\w+)/ && print $1')
 
-echo "obtaining auth token..."
-
 # POST /oauth/token
+echo "obtaining auth token..."
 token=$(curl -b $cookie_jar -c $cookie_jar -s -D - -X POST -d "grant_type=authorization_code&client_id=${client_id}&client_secret=${client_secret}&code=${code}&redirect_uri=http://foo.com" ${host}/oauth/token | perl -n -e '/access_token":"([^"]+)/ && print $1')
 
 echo "  your auth token for ${host} is ${token}"
