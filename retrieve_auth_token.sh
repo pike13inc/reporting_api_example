@@ -24,11 +24,11 @@ echo "signing in..."
 curl -b $cookie_jar -c $cookie_jar -s -X POST -d "authenticity_token=${token}&account[email]=${user}&account[password]=${password}" ${host}/accounts/sign_in 2>&1 > /dev/null
 
 # GET /oauth/authorize
-echo "obtaining authorise authenticity token..."
+echo "obtaining authorize authenticity token..."
 token=$(curl -b $cookie_jar -c $cookie_jar -s -X GET -d "client_id=${client_id}&response_type=code&redirect_uri=http://foo.com" ${host}/oauth/authorize | perl -n -e '/authenticity_token" type="hidden" value="([^"]+)"/ && print $1')
 
 # POST /oauth/authorize
-echo "authorising..."
+echo "authorizing..."
 code=$(curl -b $cookie_jar -c $cookie_jar -s -D - -X POST -d "authenticity_token=${token}&authorize=1&client_id=${client_id}&response_type=code&redirect_uri=http://foo.com" ${host}/oauth/authorize | perl -n -e '/Location: .+?code=(\w+)/ && print $1')
 
 # POST /oauth/token
