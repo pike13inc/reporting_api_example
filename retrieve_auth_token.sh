@@ -8,7 +8,7 @@ client_secret=
 # Host of the business to be queried, e.g. https://fdsc.frontdeshq.com
 host=
 
-# User name and password of *your* account. Your access to information will be determined by the access level
+# User name and password of your Front Desk account. Your access to information will be determined by the access level
 # of the profile for the business being queried.
 user=
 password=
