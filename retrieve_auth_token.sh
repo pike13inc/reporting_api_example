@@ -1,5 +1,5 @@
 # At the moment there isn't a great way to programmatically obtain authentication tokens for an account from
-# scratch. We will make this significantly easier as the API matures but for now this makes things easier.
+# scratch. We will make this significantly easier as the API matures but for now this helps.
 
 # Obtained by registering your application at https://developer.frontdeskhq.com/
 client_id=
