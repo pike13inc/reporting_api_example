@@ -5,12 +5,13 @@
 client_id=
 client_secret=
 
-# User name and password of *your* profile at the business that will be queried.
-user=
-password=
-
 # Host of the business to be queried, e.g. https://fdsc.frontdeshq.com
 host=
+
+# User name and password of *your* account. Your access to information will be determined by the access level
+# of the profile for the business being queried.
+user=
+password=
 
 cookie_jar=front_desk_cookies.txt
 
