@@ -1,19 +1,19 @@
 # At the moment there isn't a great way to programmatically obtain authentication tokens for an account from
 # scratch. We will make this significantly easier as the API matures but for now this helps.
 
-# Obtained by registering your application at https://developer.frontdeskhq.com
+# Obtained by registering your application at https://developer.pike13.com
 client_id=
 client_secret=
 
-# Host of the business to be queried, e.g. https://fdsc.frontdeshq.com
+# Host of the business to be queried, e.g. https://fdsc.pike13.com
 host=
 
-# User name and password of your Front Desk account. Your access to information will be determined by the access level
+# User name and password of your Pike13 account. Your access to information will be determined by the access level
 # of the profile for the business being queried.
 user=
 password=
 
-cookie_jar=front_desk_cookies.txt
+cookie_jar=pike13_cookies.txt
 
 # GET /accounts/sign_in
 echo "obtaining sign in authenticity token..."
