@@ -2,21 +2,21 @@
 
 The Reporting API provides easy and powerful access to a rich dataset on businesses, franchises, and their clients. Here are a few examples. 
 
-For more details about request structures, reponse structures, column types, and more, see [Reporting API documentation](https://developer.frontdeskhq.com/docs/reporting/v3).
+For more details about request structures, reponse structures, column types, and more, see [Reporting API documentation](https://developer.pike13.com/docs/reporting/v3).
 
 ## Examples
 
 ### Invoice Items
 
-See the [Invoice Item API documentation](https://developer.frontdeskhq.com/docs/reporting/v3#query-invoice-items) for available columns and groupings.
+See the [Invoice Item API documentation](https://developer.pike13.com/docs/reporting/v3#query-invoice-items) for available columns and groupings.
 
 #### Franchise revenue report
 
-Find the top ten revenue-generating franchises. As no timeframe is filtered this includes all sales ever recorded in Front Desk.
+Find the top ten revenue-generating franchises. As no timeframe is filtered this includes all sales ever recorded in Pike13.
 
 ##### Request
 ```bash
-curl -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.com/desk/api/v3/reports/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
+curl -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.pike13.com/desk/api/v3/reports/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
   { 
     "data": { 
       "type": "queries", 
@@ -73,7 +73,7 @@ Find all sales activity for a product named "Drop-In".
 
 ##### Request
 ```bash
-curl -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.com/desk/api/v3/reports/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
+curl -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.pike13.com/desk/api/v3/reports/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
   { 
     "data": { 
       "type": "queries",       
@@ -136,7 +136,7 @@ Find the five clients who have contributed the most revenue to the business. Als
 
 ##### Request
 ```bash
-curl -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.com/desk/api/v3/reports/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
+curl -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.pike13.com/desk/api/v3/reports/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
   { 
     "data": { 
       "type": "queries",       
@@ -197,7 +197,7 @@ Find the five most recent items sold.
 
 ##### Request
 ```bash
-curl -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.com/desk/api/v3/reports/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
+curl -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.pike13.com/desk/api/v3/reports/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
   { 
     "data": { 
       "type": "queries",       
@@ -258,7 +258,7 @@ Find the five items that have been sold the most and the total revenue they have
 
 ##### Request
 ```bash
-curl -D - -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.frontdeskhq.com/api/v3/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
+curl -D - -H 'Content-Type:application/vnd.api+json' http://<SUBDOMAIN>.pike13.com/api/v3/invoice_items/queries?access_token=<AUTH_TOKEN> -d @- <<QUERY
   { 
     "data": { 
       "type": "queries",       
